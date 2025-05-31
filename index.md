@@ -8,4 +8,8 @@ Welcome to webmoles‘ homepage!
 
 List:
 
-敬请期待。
+[Home](https://webmoles.github.io/)
+
+[Blog](https://webmoles.github.io/blog/)
+
+[Search](https://webmoles.github.io/search/)
