@@ -19,15 +19,13 @@
   <meta name="author" content="webmoles">
   <meta name="keywords" content="">
   
-    <meta name="description" content="theme&#x3D;色感游戏                       色感游戏              body {             font-family: Arial, sans-serif;             display: flex;             justify-content: center;             align-items: cen">
-<meta property="og:type" content="article">
+    <meta property="og:type" content="article">
 <meta property="og:title" content="webmoles">
 <meta property="og:url" content="https://webmoles.github.io/2025/06/28/%E8%89%B2%E6%84%9F%E6%B8%B8%E6%88%8F/index.html">
 <meta property="og:site_name" content="webmoles">
-<meta property="og:description" content="theme&#x3D;色感游戏                       色感游戏              body {             font-family: Arial, sans-serif;             display: flex;             justify-content: center;             align-items: cen">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-06-28T07:14:57.117Z">
-<meta property="article:modified_time" content="2025-06-28T07:15:54.928Z">
+<meta property="article:modified_time" content="2025-06-28T07:23:32.348Z">
 <meta property="article:author" content="webmoles">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          703 words
+          0 words
         
       </span>
     
@@ -233,7 +231,7 @@
         
         
         
-          6 mins
+          1 mins
         
       </span>
     
@@ -275,261 +273,7 @@
             
               <div class="markdown-body">
                 
-                <hr>
-<h2 id="theme-色感游戏"><a href="#theme-色感游戏" class="headerlink" title="theme&#x3D;色感游戏"></a>theme&#x3D;色感游戏</h2><!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>色感游戏</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-
-<pre><code class="hljs">   .beginBox &#123;
-        text-align: center;
-    &#125;
-
-   .beginTitle &#123;
-        font-size: 23px;
-        margin-bottom: 20px;
-    &#125;
-
-   .beginContent &#123;
-        font-size: 16px;
-        margin-bottom: 40px;
-    &#125;
-
-   .beginBtn &#123;
-        margin-top: 40px;
-        width: 150px;
-        line-height: 50px;
-        border-radius: 5px;
-        font-size: 23px;
-        text-align: center;
-        background: #fbad25;
-        border: 2px #ffffff45 solid;
-        box-shadow: 0 0 10px #a15a19;
-        cursor: pointer;
-    &#125;
-
-   .gameBox &#123;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    &#125;
-
-   .headbox &#123;
-        width: 350px;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 0 10px 0;
-        font-size: 16px;
-    &#125;
-
-   .box &#123;
-        display: flex;
-        flex-direction: column;
-        padding: 5px;
-        width: 350px;
-        background: #FFFFFF;
-        border-radius: 5px;
-    &#125;
-
-   .hengBox &#123;
-        display: flex;
-        flex-direction: row;
-    &#125;
-
-   .smellBox &#123;
-        flex: 1;
-        height: 100%;
-        padding: 3px;
-    &#125;
-
-   .bcgColor &#123;
-        width: 100%;
-        height: 100%;
-        border-radius: 5px;
-    &#125;
-&lt;/style&gt;
-</code></pre>
-</head>
-
-<body>
-    <div id="beginBox" class="beginBox">
-        <p class="beginTitle">色感游戏</p>
-        <div class="beginContent">
-            <p>找出所有色块里颜色不同的一个</p>
-        </div>
-        <div id="beginBtn" class="beginBtn">
-            开始
-        </div>
-    </div>
-    <div id="gameBox" class="gameBox" style="display: none;">
-        <p class="beginTitle">色感游戏</p>
-        <div class="headbox">
-            <p>时间：<span id="gameTime">60</span></p>
-            <p>得分：<span id="gameScore">0</span></p>
-        </div>
-        <div id="box" class="box">
-        </div>
-    </div>
-
-<pre><code class="hljs">&lt;script&gt;
-    var gameType = 0;
-    var baseCount = 2;
-    var selOne = 1;
-    var selTwo = 0;
-    var selColor = &#39;hsl(200,90%,50%)&#39;;
-    var defColor = &#39;hsl(200,60%,50%)&#39;;
-    var gameTime = 60;
-    var gameScore = 0;
-    var gameGrade = 0;
-    var countdownInterval;
-
-    var beginBox = document.getElementById(&#39;beginBox&#39;);
-    var gameBox = document.getElementById(&#39;gameBox&#39;);
-    var beginBtn = document.getElementById(&#39;beginBtn&#39;);
-    var gameTimeElement = document.getElementById(&#39;gameTime&#39;);
-    var gameScoreElement = document.getElementById(&#39;gameScore&#39;);
-    var boxElement = document.getElementById(&#39;box&#39;);
-
-    function beginGame() &#123;
-        gameType = 1;
-        gameScore = 0;
-        gameTime = 60;
-        baseCount = 2;
-        selColor = &#39;hsl(200,90%,50%)&#39;;
-        defColor = &#39;hsl(200,60%,50%)&#39;;
-        selOne = 1;
-        selTwo = 0;
-        gameGrade = 0;
-        var ceshiWith = 330 / baseCount + &#39;px&#39;;
-
-        beginBox.style.display = &#39;none&#39;;
-        gameBox.style.display = &#39;flex&#39;;
-        gameTimeElement.innerHTML = gameTime;
-        gameScoreElement.innerHTML = gameScore;
-
-        renderBoxes(ceshiWith);
-        countDown();
-    &#125;
-
-    function countDown() &#123;
-        countdownInterval = setInterval(function () &#123;
-            if (gameTime &lt;= 0) &#123;
-                clearInterval(countdownInterval);
-                var showScore = gameScore &lt; 0? 0 : gameScore;
-                alert(&#39;游戏结束，你输了，你的得分是: &#39; + showScore);
-                gameType = 0;
-                beginBox.style.display = &#39;block&#39;;
-                gameBox.style.display = &#39;none&#39;;
-                return;
-            &#125;
-            gameTime--;
-            gameTimeElement.innerHTML = gameTime;
-        &#125;, 1000);
-    &#125;
-
-    function selDiv(one, two) &#123;
-        if (one === selOne &amp;&amp; two === selTwo) &#123;
-            gameScore++;
-            if (gameScore &gt;= 27) &#123;
-                clearInterval(countdownInterval);
-                alert(&#39;恭喜你，游戏获胜，你的得分是：&#39; + gameScore);
-                gameType = 0;
-                beginBox.style.display = &#39;block&#39;;
-                gameBox.style.display = &#39;none&#39;;
-                return;
-            &#125;
-        &#125; else &#123;
-            gameScore--;
-            if (gameScore &lt; 0) &#123;
-                gameScore = 0;
-                clearInterval(countdownInterval);
-                alert(&#39;游戏结束，你输了，你的得分是: &#39; + gameScore);
-                gameType = 0;
-                beginBox.style.display = &#39;block&#39;;
-                gameBox.style.display = &#39;none&#39;;
-                return;
-            &#125;
-        &#125;
-        gameScoreElement.innerHTML = gameScore;
-        raiseGame();
-    &#125;
-
-    function raiseGame() &#123;
-        if (baseCount &lt; 8) &#123;
-            baseCount++;
-        &#125;
-        var ceshiWith = 330 / baseCount + &#39;px&#39;;
-        selOne = Math.round(Math.random() * (baseCount - 1));
-        selTwo = Math.round(Math.random() * (baseCount - 1));
-        randomHsl();
-        renderBoxes(ceshiWith);
-    &#125;
-
-    function randomHsl() &#123;
-        var Tone = Math.round(Math.random() * (360 - 1));
-        var diffSum = 90;
-        if (gameScore &lt; 10) &#123;
-            diffSum = diffSum - gameScore;
-        &#125; else if (gameScore &lt; 30) &#123;
-            diffSum = diffSum - (gameScore - 10) / 2 - 10;
-        &#125; else if (gameScore &lt; 40) &#123;
-            diffSum = diffSum - (gameScore - 30) / 2 - 20;
-        &#125; else &#123;
-            diffSum = 65;
-        &#125;
-        selColor = &#39;hsl(&#39; + Tone + &#39;,&#39; + diffSum + &#39;%,&#39; + &#39;50%)&#39;;
-        defColor = &#39;hsl(&#39; + Tone + &#39;,60%,&#39; + &#39;50%)&#39;;
-    &#125;
-
-    function renderBoxes(ceshiWith) &#123;
-        boxElement.innerHTML = &#39;&#39;;
-        for (var i = 0; i &lt; baseCount; i++) &#123;
-            var hengBox = document.createElement(&#39;div&#39;);
-            hengBox.className = &#39;hengBox&#39;;
-            for (var j = 0; j &lt; baseCount; j++) &#123;
-                var smellBox = document.createElement(&#39;div&#39;);
-                smellBox.className = &#39;smellBox&#39;;
-                smellBox.style.height = ceshiWith;
-                smellBox.addEventListener(&#39;click&#39;, (function (row, col) &#123;
-                    return function () &#123;
-                        selDiv(row, col);
-                    &#125;;
-                &#125;)(i, j));
-
-                var bcgColor = document.createElement(&#39;div&#39;);
-                bcgColor.className = &#39;bcgColor&#39;;
-                if (i === selOne &amp;&amp; j === selTwo) &#123;
-                    bcgColor.style.background = selColor;
-                &#125; else &#123;
-                    bcgColor.style.background = defColor;
-                &#125;
-                smellBox.appendChild(bcgColor);
-                hengBox.appendChild(smellBox);
-            &#125;
-            boxElement.appendChild(hengBox);
-        &#125;
-    &#125;
-
-    beginBtn.addEventListener(&#39;click&#39;, beginGame);
-&lt;/script&gt;
-</code></pre>
-</body>
-
-</html>
+                <iframe srcdoc="<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>色感游戏</title><style>body{font-family:Arial,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;background-color:#f4f4f4}.beginBox{text-align:center}.beginTitle{font-size:23px;margin-bottom:20px}.beginContent{font-size:16px;margin-bottom:40px}.beginBtn{margin-top:40px;width:150px;line-height:50px;border-radius:5px;font-size:23px;text-align:center;background:#fbad25;border:2px #ffffff45 solid;box-shadow:0 0 10px #a15a19;cursor:pointer}.gameBox{display:flex;flex-direction:column;align-items:center}.headbox{width:350px;display:flex;justify-content:space-between;padding:0 0 10px 0;font-size:16px}.box{display:flex;flex-direction:column;padding:5px;width:350px;background:#FFFFFF;border-radius:5px}.hengBox{display:flex;flex-direction:row}.smellBox{flex:1;height:100%;padding:3px}.bcgColor{width:100%;height:100%;border-radius:5px}</style></head><body><div id="beginBox" class="beginBox"><p class="beginTitle">色感游戏</p><div class="beginContent"><p>找出所有色块里颜色不同的一个</p></div><div id="beginBtn" class="beginBtn">开始</div></div><div id="gameBox" class="gameBox" style="display: none;"><p class="beginTitle">色感游戏</p><div class="headbox"><p>时间：<span id="gameTime">60</span></p><p>得分：<span id="gameScore">0</span></p></div><div id="box" class="box"></div></div><script>var gameType=0;var baseCount=2;var selOne=1;var selTwo=0;var selColor='hsl(200,90%,50%)';var defColor='hsl(200,60%,50%)';var gameTime=60;var gameScore=0;var gameGrade=0;var countdownInterval;var beginBox=document.getElementById('beginBox');var gameBox=document.getElementById('gameBox');var beginBtn=document.getElementById('beginBtn');var gameTimeElement=document.getElementById('gameTime');var gameScoreElement=document.getElementById('gameScore');var boxElement=document.getElementById('box');function beginGame(){gameType=1;gameScore=0;gameTime=60;baseCount=2;selColor='hsl(200,90%,50%)';defColor='hsl(200,60%,50%)';selOne=1;selTwo=0;gameGrade=0;var ceshiWith=330/baseCount+'px';beginBox.style.display='none';gameBox.style.display='flex';gameTimeElement.innerHTML=gameTime;gameScoreElement.innerHTML=gameScore;renderBoxes(ceshiWith);countDown()}function countDown(){countdownInterval=setInterval(function(){if(gameTime<=0){clearInterval(countdownInterval);var showScore=gameScore<0?0:gameScore;alert('游戏结束，你输了，你的得分是: '+showScore);gameType=0;beginBox.style.display='block';gameBox.style.display='none';return}gameTime--;gameTimeElement.innerHTML=gameTime},1000)}function selDiv(one,two){if(one===selOne&&two===selTwo){gameScore++;if(gameScore>=27){clearInterval(countdownInterval);alert('恭喜你，游戏获胜，你的得分是：'+gameScore);gameType=0;beginBox.style.display='block';gameBox.style.display='none';return}}else{gameScore--;if(gameScore<0){gameScore=0;clearInterval(countdownInterval);alert('游戏结束，你输了，你的得分是: '+gameScore);gameType=0;beginBox.style.display='block';gameBox.style.display='none';return}}gameScoreElement.innerHTML=gameScore;raiseGame()}function raiseGame(){if(baseCount<8){baseCount++;}var ceshiWith=330/baseCount+'px';selOne=Math.round(Math.random()*(baseCount-1));selTwo=Math.round(Math.random()*(baseCount-1));randomHsl();renderBoxes(ceshiWith)}function randomHsl(){var Tone=Math.round(Math.random()*(360-1));var diffSum=90;if(gameScore<10){diffSum=diffSum-gameScore;}else if(gameScore<30){diffSum=diffSum-(gameScore-10)/2-10;}else if(gameScore<40){diffSum=diffSum-(gameScore-30)/2-20;}else{diffSum=65;}selColor='hsl('+Tone+','+diffSum+'%,'+'50%)';defColor='hsl('+Tone+',60%,'+'50%)'}function renderBoxes(ceshiWith){boxElement.innerHTML='';for(var i=0;i<baseCount;i++){var hengBox=document.createElement('div');hengBox.className='hengBox';for(var j=0;j<baseCount;j++){var smellBox=document.createElement('div');smellBox.className='smellBox';smellBox.style.height=ceshiWith;smellBox.addEventListener('click',(function(row,col){return function(){selDiv(row,col)}})(i,j));var bcgColor=document.createElement('div');bcgColor.className='bcgColor';if(i===selOne&&j===selTwo){bcgColor.style.background=selColor;}else{bcgColor.style.background=defColor;}smellBox.appendChild(bcgColor);hengBox.appendChild(smellBox)}boxElement.appendChild(hengBox)}}beginBtn.addEventListener('click',beginGame);</script></body></html>" width="100%" height="200" frameborder="0"></iframe>
                 
               </div>
             
